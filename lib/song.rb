@@ -42,7 +42,7 @@ def self.genre_count
   hash_genres = {}
   self.genres.each do |gen|
       @@songs.each do |sng|
-      if sng.genre == gen && hash_genres.keys.include?(gen)
+    if sng.genre == gen && hash_genres.keys.include?(gen)
          hash_genres[gen]+=1
       else
         hash_genres[gen] = 1
@@ -53,7 +53,17 @@ def self.genre_count
 end 
 
 def self.artist_count 
-  
+  hash_artists = {}
+  self.artists.each do |art|
+      @@songs.each do |sng|
+  if sng.artist == art && hash_artists.keys.include?(art)
+         hash_artists[art]+=1
+      else
+        hash_artists[art] = 1
+      end
+    end
+    end
+    return hash_artists
 end 
 
 end 
